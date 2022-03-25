@@ -15,7 +15,7 @@ return menuItem;
 
 function addIngredients (ingredient,ingredients){
   if (ingredients.includes(ingredient)){
-    return ("You fool! This ingredient has already been added.");
+    return ("You are a foolish individual. This ingredient has already been added.");
   } else {
     return ingredients.push(ingredient);
  }
