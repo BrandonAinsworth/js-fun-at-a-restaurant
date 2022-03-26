@@ -8,21 +8,23 @@ function createRestaurant(name) {
   }
 };
 }
+
 function addMenuItem(ristorante, food){
- 
-  if (ristorante.menus[food.type].includes(food)) {
-    console.log("This item has already been added") 
-  } else if (food.type == "lunch") {
-  return ristorante.menus.lunch.push(food) 
-  } else {
-return ristorante.menus.breakfast.push(food)
+  var foodType = food.type;
+  if (ristorante.menus[foodType].includes(food) === false) {
+    ristorante.menus[foodType].push(food)
   }
 }
 
-function removeMenuItem (ristorante, food, type) {
-  
+function removeMenuItem(ristorante, food, type) {
+  for (var i = 0; i < ristorante.menus[type].length; i++) {
+    if (ristorante.menus[type][i].name === food) {
+    ristorante.menus[type].splice(i, 1) 
+return `No one is eating our ${food} - it has been removed from the ${type} menu!`
+  }
+  }
+return `Sorry, we don't sell ${food}, try adding a new recipe!`
 }
-//New Machine GIT TEST
 
 module.exports = {
   createRestaurant, 
